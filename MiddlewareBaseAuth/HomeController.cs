@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
 
-namespace BasicAuth 
+namespace MiddlewareBaseAuth
 {
     public class HomeController : Controller
     {
@@ -26,11 +26,9 @@ namespace BasicAuth
 
             var claims = new List<Claim> {
 
-                new Claim(ClaimTypes.Name, "Lee"),
-                new Claim(ClaimTypes.Role, user),
+                new Claim(ClaimTypes.Name,user), new Claim(ClaimTypes.Role, user),
                 
-            };  
-            
+            };    
 
             var identity = new ClaimsIdentity(claims, "Identity");
 
@@ -48,7 +46,7 @@ namespace BasicAuth
             return Content("Logout Success");
         } 
 
-        [Authorize]
+        
         public IActionResult Secret()
         {
             var user = HttpContext.User;
@@ -57,13 +55,13 @@ namespace BasicAuth
         }
 
 
-        [Authorize(Roles = "Dev")]
+        [AllowAnonymous]
         public IActionResult SecretForDev()
         { 
             return Content("SecretForDev");
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         public IActionResult SecretForAdmin()
         {
             return Content("SecretForAdmin");

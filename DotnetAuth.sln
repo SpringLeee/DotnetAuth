@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasicAuth", "BasicAuth\BasicAuth.csproj", "{D0E9CFEF-D83A-465D-94D6-A0A003BF5231}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicAuth", "BasicAuth\BasicAuth.csproj", "{D0E9CFEF-D83A-465D-94D6-A0A003BF5231}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClaimBaseAuth", "ClaimBaseAuthorize\ClaimBaseAuth.csproj", "{A0E4EC10-3D2E-4803-8F33-5B74705E1984}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareBaseAuth", "MiddlewareBaseAuth\MiddlewareBaseAuth.csproj", "{AFC459EF-BCB0-4FAF-93FE-280FA9DF8DD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JWTAuth", "JWTAuth\JWTAuth.csproj", "{163A0CC1-50F1-41B8-83C4-0E8AECF20CEF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{D0E9CFEF-D83A-465D-94D6-A0A003BF5231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0E9CFEF-D83A-465D-94D6-A0A003BF5231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0E9CFEF-D83A-465D-94D6-A0A003BF5231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0E4EC10-3D2E-4803-8F33-5B74705E1984}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0E4EC10-3D2E-4803-8F33-5B74705E1984}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0E4EC10-3D2E-4803-8F33-5B74705E1984}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0E4EC10-3D2E-4803-8F33-5B74705E1984}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFC459EF-BCB0-4FAF-93FE-280FA9DF8DD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFC459EF-BCB0-4FAF-93FE-280FA9DF8DD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFC459EF-BCB0-4FAF-93FE-280FA9DF8DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFC459EF-BCB0-4FAF-93FE-280FA9DF8DD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163A0CC1-50F1-41B8-83C4-0E8AECF20CEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163A0CC1-50F1-41B8-83C4-0E8AECF20CEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163A0CC1-50F1-41B8-83C4-0E8AECF20CEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163A0CC1-50F1-41B8-83C4-0E8AECF20CEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
