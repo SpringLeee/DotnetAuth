@@ -19,10 +19,12 @@ app.UseRouting();
 
 app.UseIdentityServer();
 
+
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapDefaultControllerRoute();
 
 });
 
-app.Run();
+app.Run("https://localhost:5131");

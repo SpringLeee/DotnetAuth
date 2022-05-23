@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using IdentityModel.Client;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -21,13 +22,35 @@ namespace ApiOne
         {
             return Content("Index");
         } 
-        
-        public async Task<IActionResult> Logout()
-        { 
-            await HttpContext.SignOutAsync();
 
-            return Content("Logout Success");
-        } 
+       
+        public async Task<string> RequestSecret()
+        {
+            var server = "https://localhost:5131";
+
+            var apiOne = "http://localhost:5030";
+
+            var client = new HttpClient();
+
+            var discoveryDocument = await client.GetDiscoveryDocumentAsync(server);
+
+            var tokenResponse = await client.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
+            {
+
+                Address = discoveryDocument.TokenEndpoint,
+                ClientId = "client_id",
+                ClientSecret = "client_secret",
+                Scope = "ApiOne" 
+            });
+
+            var token = tokenResponse.AccessToken;
+
+            client.SetBearerToken(token);
+
+            var response = await client.GetStringAsync(apiOne + "/Home/Secret");
+
+            return response;
+        }
 
         [Authorize(Roles = "Admin")]
         public IActionResult Secret()
@@ -35,19 +58,7 @@ namespace ApiOne
             var user = HttpContext.User;
 
             return Content("Secret");
-        }
-
-
-        [AllowAnonymous]
-        public IActionResult SecretForDev()
-        { 
-            return Content("SecretForDev");
-        }
-
-        [Authorize]
-        public IActionResult SecretForAdmin()
-        {
-            return Content("SecretForAdmin");
         } 
+ 
     }
 }
