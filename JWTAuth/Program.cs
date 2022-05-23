@@ -22,9 +22,7 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
     });
 
-services.AddAuthorization(); 
-
-
+services.AddAuthorization();  
 services.AddAuthorization();
 
 services.AddControllers();
